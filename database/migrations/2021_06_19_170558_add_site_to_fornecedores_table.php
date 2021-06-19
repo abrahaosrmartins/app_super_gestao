@@ -14,7 +14,7 @@ class AddSiteToFornecedoresTable extends Migration
     public function up()
     {
         Schema::table('fornecedores', function (Blueprint $table) {
-            $table->string('site', 50)->after('name')->nullable();
+            $table->string('site', 50)->after('nome')->nullable();
         });
     }
 
