@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSiteToFornecedoresTable extends Migration
+class AddSofdeletesToFornecedoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddSiteToFornecedoresTable extends Migration
     public function up()
     {
         Schema::table('fornecedores', function (Blueprint $table) {
-            $table->string('site', 50)->after('nome')->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -26,7 +26,7 @@ class AddSiteToFornecedoresTable extends Migration
     public function down()
     {
         Schema::table('fornecedores', function (Blueprint $table) {
-            $table->dropColumn('site');
+            $table->dropSoftDeletes();
         });
     }
 }
