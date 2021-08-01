@@ -14,8 +14,24 @@ class AutenticacaoMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $metodo_autenticacao, $perfil)
     {
+        echo $metodo_autenticacao . '<br>';
+
+        if ($metodo_autenticacao == 'padrao') {
+            echo 'Verificar o usuário e senha no banco de dados. - ' . $perfil . '<br>';
+        }
+
+        if ($metodo_autenticacao == 'ldap') {
+            echo 'Verificar o usuário e senha no AD. - ' . $perfil . '<br>';
+        }
+
+        if ($perfil == 'visitante') {
+            echo 'Carregar apenas alguns dados.' . '<br>';
+        } else {
+            echo 'Carregador o perfil completo do banco de dados' . '<br>';
+        }
+
         if (false) {
             return $next($request);
         } else {
