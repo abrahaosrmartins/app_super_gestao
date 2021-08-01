@@ -27,7 +27,7 @@ Route::get('/contato', [ContatoController::class, 'contato'])->name('site.contat
 Route::post('/contato', [ContatoController::class, 'salvar'])->name('site.contato');
 Route::get('sobre_nos', [SobreNosController::class, 'sobrenos'])->name('site.sobrenos');
 
-Route::middleware('autenticacao.middleware')->prefix('/app')->group(function () {
+Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function () {
     Route::get('/clientes', function () {
         return 'Clientes';
     })->name('app.clientes');
@@ -36,6 +36,6 @@ Route::middleware('autenticacao.middleware')->prefix('/app')->group(function () 
         ->name('app.fornecedores');
 
     Route::get('/produtos', function () {
-        return 'produtos';
+        return 'Produtos';
     })->name('app.produtos');
 });
