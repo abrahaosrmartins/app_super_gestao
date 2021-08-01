@@ -21,6 +21,11 @@ class LogAcessoMiddleware
         $ip = $request->server->get('REMOTE_ADDR');
         $rota = $request->getRequestUri();
         LogAcesso::create(['log' => "IP $ip requisitou a rota $rota"]);
-        return $next($request);
+
+        $response =  $next($request);
+
+        $response->setStatusCode(201, 'Sucesso!');
+
+        return $response;
     }
 }
