@@ -24,6 +24,7 @@ class FornecedorSeeder extends Seeder
 
         $fornecedor->save();
 
+         //Tecnica 2
         Fornecedor::create([
             'nome' => 'Fornecedor 200',
             'site' => 'fornecedor200.com.br',
@@ -31,6 +32,7 @@ class FornecedorSeeder extends Seeder
             'email' => 'contato@fornecedor200.com'
         ]);
 
+         //Tecnica 3
         DB::table('fornecedores')->insert([
             'nome' => 'Fornecedor 300',
             'site' => 'fornecedor300.com.br',
