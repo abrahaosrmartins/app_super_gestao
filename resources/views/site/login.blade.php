@@ -23,6 +23,7 @@
 
                     <button type="submit" class="borda-preta">Login</button>
                 </form>
+                {{isset($erro) && $erro != '' ? $erro : ''}}
             </div>
         </div>
     </div>

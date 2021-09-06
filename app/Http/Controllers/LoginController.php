@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('site.login', ['titulo' => 'Login']);
+        $erro = '';
+        if ($request->get('erro') == 1) {
+            $erro = 'Usuário ou senha inexistentes.';
+        }
+        return view('site.login', ['titulo' => 'Login', 'erro' => $erro]);
     }
 
     public function autenticar(Request $request)
