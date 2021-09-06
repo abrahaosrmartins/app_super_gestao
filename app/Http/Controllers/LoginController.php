@@ -34,14 +34,19 @@ class LoginController extends Controller
         $user = new User();
 
         $usuario = $user->where('email', $email)
-        ->where('password', $password)
-        ->get()
-        ->first();
+            ->where('password', $password)
+            ->get()
+            ->first();
 
         if (isset($usuario->name)) {
-            echo('Usuário existe.');
+            session_start();//inicia a super global Session para as informações ficarem guardadas nela, e o usuário conseguir navegar enquanto a sessão está ativa
+            
+            $_SESSION['nome'] = $usuario->name; // esta linha e a próxima armazenam o name e o email que vem na request, na super global SESSION
+            $_SESSION['email'] = $usuario->email;
+
+            return redirect()->route('app.clientes');
         } else {
-            echo('Usuário inexistente!');
+            echo ('Usuário inexistente!');
         }
     }
 }
