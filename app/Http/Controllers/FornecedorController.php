@@ -9,8 +9,6 @@ class FornecedorController extends Controller
 {
     public function index()
     {
-        $fornecedores = Fornecedor::orderBy('nome')->get();
-
-        return view('site.fornecedores', compact('fornecedores'));
+        return view('app.fornecedor');
     }
 }
