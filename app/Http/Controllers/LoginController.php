@@ -13,6 +13,11 @@ class LoginController extends Controller
         if ($request->get('erro') == 1) {
             $erro = 'Usuário ou senha inexistentes.';
         }
+
+        if ($request->get('erro') == 2) {
+            $erro = 'Necessário estar logado para acessar esta página.';
+        }
+
         return view('site.login', ['titulo' => 'Login', 'erro' => $erro]);
     }
 
@@ -48,9 +53,15 @@ class LoginController extends Controller
             $_SESSION['nome'] = $usuario->name; // esta linha e a próxima armazenam o name e o email que vem na request, na super global SESSION
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.clientes');
+            return redirect()->route('app.cliente');
         } else {
-            echo ('Usuário inexistente!');
+            return redirect()->route('site.login', ['erro' => 1]);
         }
+    }
+
+    public function sair()
+    {
+        session_destroy();
+        return redirect()->route('site.index');
     }
 }
