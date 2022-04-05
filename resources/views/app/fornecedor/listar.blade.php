@@ -43,7 +43,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{-- {{ $fornecedores->appends()->links() }} --}} {{--TODO: CONSERTAR PAGINAÇÃO--}}
+             {{ $fornecedores->appends($request)->links() }}
         </div>
     </div>
 
