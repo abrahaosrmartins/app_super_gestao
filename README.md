@@ -1,3 +1,25 @@
+### Project created for Laravel Framework studying purposes.
+
+#### Dedicated topics:
+
+- Tools Installation and environment config.
+    - Database config, PHP and Composer installation.
+- Routes, Controllers and Views.
+    - Route parameters (optional or not).
+    - Regular expressions, grouping and redirection.
+    - Controller-View relationship.
+    - Blade Syntax (Components, Includes, Forms)
+- Database control and testing
+    - Models, Migrations, Seeders, Factories, Tinker and Eloquent ORM
+    - Migration modifiers
+    - Eloquent Clauses
+    - Foreign Keys
+    - Relationships
+- Form Request
+    - Data validation with Request object
+    - Error handling
+- Middlewares
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
