@@ -1,7 +1,7 @@
 <div class="topo">
     <div class="logo">
         <a href="{{ route('site.index') }}">
-            <img src="{{ asset('img/logo.png') }}">
+            <img src="{{ asset('img/logo.png') }}" alt="">
         </a>
     </div>
 

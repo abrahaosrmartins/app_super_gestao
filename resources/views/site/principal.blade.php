@@ -12,17 +12,17 @@
             <p>Software para gestão empresarial ideal para sua empresa.
             <p>
             <div class="chamada">
-                <img src="/img/check.png">
+                <img src="/img/check.png" alt="">
                 <span class="texto-branco">Gestão completa e descomplicada</span>
             </div>
             <div class="chamada">
-                <img src="img/check.png">
+                <img src="img/check.png" alt="">
                 <span class="texto-branco">Sua empresa na nuvem</span>
             </div>
         </div>
 
         <div class="video">
-            <img src="img/player_video.jpg">
+            <img src="img/player_video.jpg" alt="">
         </div>
     </div>
 

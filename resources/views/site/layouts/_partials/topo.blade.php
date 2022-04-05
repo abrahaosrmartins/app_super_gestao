@@ -2,7 +2,7 @@
 
     <div class="logo">
         <a href="{{route('site.index')}}">
-            <img src="img/logo.png">
+            <img src="img/logo.png" alt="">
         </a>
     </div>
 
