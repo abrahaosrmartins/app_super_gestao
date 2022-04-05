@@ -19,10 +19,18 @@
         <div style="width: 30%; margin-left: auto; margin-right: auto">
             <form method="post" action="{{ route('app.fornecedor.listar') }}">
                 @csrf
-                <input type="text" name="nome" placeholder="Nome" class="borda-preta">
-                <input type="text" name="site" placeholder="Site" class="borda-preta">
-                <input type="text" name="uf" placeholder="UF" class="borda-preta">
-                <input type="text" name="email" placeholder="E-mail" class="borda-preta">
+                <label>
+                    <input type="text" name="nome" placeholder="Nome" class="borda-preta">
+                </label>
+                <label>
+                    <input type="text" name="site" placeholder="Site" class="borda-preta">
+                </label>
+                <label>
+                    <input type="text" name="uf" placeholder="UF" class="borda-preta">
+                </label>
+                <label>
+                    <input type="text" name="email" placeholder="E-mail" class="borda-preta">
+                </label>
                 <button type="submit" class="borda-preta">Pesquisar</button>
             </form>
         </div>
