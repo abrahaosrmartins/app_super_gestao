@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fornecedor;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
@@ -19,6 +23,7 @@ class FornecedorController extends Controller
      * pesquisa um fornecedor
      *
      * @param Request $request
+     * @return Application|Factory|View
      */
     public function listar(Request $request)
     {
@@ -36,6 +41,7 @@ class FornecedorController extends Controller
      * Cria um fornecedor
      *
      * @param Request $request
+     * @return Application|Factory|View|RedirectResponse
      */
     public function adicionar(Request $request)
     {
@@ -101,7 +107,7 @@ class FornecedorController extends Controller
     /**
      * Exclui um registro
      */
-    public function excluir($id)
+    public function excluir($id): RedirectResponse
     {
         Fornecedor::find($id)->delete();
 
