@@ -21,13 +21,13 @@ class CreateUnidadesTable extends Migration
         });
 
         //adicionar relacionamento com a tabela produtos
-        Schema::table('produtos', function(Blueprint $table){
-            $table->unsignedBigInteger('unidade_id');
+        Schema::table('produtos', function (Blueprint $table) {
+            $table->unsignedBigInteger('unidade_id')->after('peso');
             $table->foreign('unidade_id')->references('id')->on('unidades');
         });
-        
+
         // adicionar relacionamento com a tabela produto_detalhes
-        Schema::table('produto_detalhes', function(Blueprint $table){
+        Schema::table('produto_detalhes', function (Blueprint $table) {
             $table->unsignedBigInteger('unidade_id');
             $table->foreign('unidade_id')->references('id')->on('unidades');
         });
