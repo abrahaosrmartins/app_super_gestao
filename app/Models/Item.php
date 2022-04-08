@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Produto extends Model
+class Item extends Model
 {
     use HasFactory;
+
+    protected $table = 'produtos';
 
     protected $fillable = [
         'nome',
@@ -20,8 +22,8 @@ class Produto extends Model
     /**
      * @return HasOne
      */
-    public function produtoDetalhe(): HasOne
+    public function itemDetalhe(): HasOne
     {
-        return $this->hasOne(ProdutoDetalhe::class);
+        return $this->hasOne(ItemDetalhe::class, 'produto_id', 'id');
     }
 }
