@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Produto;
+use App\Models\ProdutoDetalhe;
 use App\Models\Unidade;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -18,7 +20,8 @@ class ProdutoController extends Controller
      */
     public function index(Request $request): View
     {
-        $produtos = Produto::paginate(10);
+        $produtos = Item::with(['itemDetalhe'])->paginate(10);
+        // método with() determina que o carregamento vai ser eager loading, ao invés de lazy loading
 
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }
