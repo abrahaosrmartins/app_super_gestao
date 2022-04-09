@@ -25,5 +25,6 @@ class ItemDetalhe extends Model
     public function item(): BelongsTo
     {
         return $this->belongsTo(Item::class, 'produto_id', 'id');
+        // se não especificamos o nome da fk, ele procura por item_id
     }
 }
