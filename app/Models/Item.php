@@ -26,6 +26,7 @@ class Item extends Model
     public function itemDetalhe(): HasOne
     {
         return $this->hasOne(ItemDetalhe::class, 'produto_id', 'id');
+        // se não especificamos o nome da fk, ele procura por item_id
     }
 
     /**
