@@ -102,6 +102,25 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Item $produto): RedirectResponse
     {
+        $regras = [
+            'nome' => 'required|min:3|max:40',
+            'descricao' => 'required|min:3|max:2000',
+            'peso' => 'required|integer',
+            'unidade_id' => 'exists:unidades,id', //'exists:<table>,<column>'
+            'fornecedor_id' => 'exists:fornecedores,id' //'exists:<table>,<column>'
+        ];
+
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'min' => 'O campo :attribute deve ter no mínimo 3 caracteres',
+            'nome.max' => 'O campo nome deve ter no máximo 40 caracteres',
+            'descricao.max' => 'O campo nome deve ter no máximo 2000 caracteres',
+            'peso.integer' => 'O campo peso deve ser um número inteiro',
+            'unidade_id.exists' => 'A unidade de medida informada não existe',
+            'fornecedor_id.exists' => 'O Fornecedor informado não existe'
+        ];
+        $request->validate($regras, $feedback);
+
         $produto->update($request->all());
         return redirect()->route('produto.show', ['produto' => $produto->id]);
     }
