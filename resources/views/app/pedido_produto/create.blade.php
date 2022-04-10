@@ -23,6 +23,8 @@
             <p>Cliente: {{ $pedido->cliente_id }}</p>
             
             <div style="width: 30%; margin-left: auto; margin-right: auto">
+                <h4>Itens do Pedido</h4>
+                {{ $pedido }}
                 @component('app.pedido_produto._components.form_create', ['pedido' => $pedido, 'produtos' => $produtos])
                 @endcomponent
             </div>
