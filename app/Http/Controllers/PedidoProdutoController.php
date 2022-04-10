@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\PedidoProduto;
 use App\Models\Produto;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class PedidoProdutoController extends Controller
@@ -35,16 +37,26 @@ class PedidoProdutoController extends Controller
      *
      * @param Request $request
      * @param Pedido $pedido
+     * @return RedirectResponse
      */
-    public function store(Request $request, Pedido $pedido)
+    public function store(Request $request, Pedido $pedido): RedirectResponse
     {
-        echo '<pre>';
-        print_r($pedido);
-        echo '</pre>';
-        echo '<hr>';
-        echo '<pre>';
-        print_r($request->all());
-        echo '</pre>';
+        $regras = [
+            'produto_id' => 'exists:produtos,id'
+        ];
+        $feedback = [
+            'produto_id.exists' => 'O produto informado não existe'
+        ];
+
+        $request->validate($regras, $feedback);
+
+        $data = [
+            'pedido_id' => $pedido->id,
+            'produto_id' => $request->get('produto_id')
+        ];
+        PedidoProduto::create($data);
+
+        return redirect()->route('pedido-produto.create', $pedido->id);
     }
 
     /**
