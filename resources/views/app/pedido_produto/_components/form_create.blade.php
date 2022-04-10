@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('pedido-produto.store', ['pedido', $pedido]) }}">
+<form method="post" action="{{ route('pedido-produto.store', $pedido->id) }}">
     @csrf
     <label>
         <select name="produto_id">
