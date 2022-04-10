@@ -56,3 +56,7 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     //como a msg não é obrigatória, colocamos o ? no final
     Route::get('/fornecedor/excluir/{id}', 'App\Http\Controllers\FornecedorController@excluir')->name('app.fornecedor.excluir');
 });
+
+Route::fallback(function() {
+    echo 'A rota acessada não existe. <a href="'.route('site.index').'">clique aqui</a> para ir para página inicial';
+});
