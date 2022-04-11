@@ -12,6 +12,7 @@ class PedidoProduto extends Model
     protected $table = 'pedidos_produtos';
     protected $fillable = [
         'pedido_id',
-        'produto_id'
+        'produto_id',
+        'quantidade'
     ];
 }
