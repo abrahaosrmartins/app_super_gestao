@@ -28,7 +28,7 @@ class PedidoProdutoController extends Controller
     public function create(Pedido $pedido): View
     {
         $produtos = Produto::all();
-        $pedido->produtos; // eager loading
+//        $pedido->produtos; // eager loading
         return view('app.pedido_produto.create', ['pedido' => $pedido, 'produtos' => $produtos]);
     }
 
@@ -42,10 +42,12 @@ class PedidoProdutoController extends Controller
     public function store(Request $request, Pedido $pedido): RedirectResponse
     {
         $regras = [
-            'produto_id' => 'exists:produtos,id'
+            'produto_id' => 'exists:produtos,id',
+            'quantidade' => 'required'
         ];
         $feedback = [
-            'produto_id.exists' => 'O produto informado não existe'
+            'produto_id.exists' => 'O produto informado não existe.',
+            'required' => 'O campo :attribute deve ser preenchido.'
         ];
 
         $request->validate($regras, $feedback);
