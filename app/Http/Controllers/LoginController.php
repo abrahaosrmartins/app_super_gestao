@@ -53,7 +53,7 @@ class LoginController extends Controller
             $_SESSION['nome'] = $usuario->name; // esta linha e a próxima armazenam o name e o email que vem na request, na super global SESSION
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.cliente');
+            return redirect()->route('app.home');
         } else {
             return redirect()->route('site.login', ['erro' => 1]);
         }

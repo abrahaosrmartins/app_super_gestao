@@ -7,14 +7,14 @@
         <div class="titulo-pagina-2">
             <p>Listagem de Produtos</p>
         </div>
-        
+
         <div class="menu">
             <ul>
                 <li><a href="{{ route('produto.create') }}">Novo</a></li>
                 <li><a href="">Consulta</a></li>
             </ul>
         </div>
-        
+
         <div class="informacao-pagina">
             <div style="width: 90%; margin-left: auto; margin-right: auto">
                 <table border="1" width="100%">
@@ -34,7 +34,7 @@
                         <th></th>
                     </tr>
                     </thead>
-                    
+
                     <tbody>
                     @foreach ($produtos as $produto)
                         <tr>
@@ -58,6 +58,16 @@
                                 </form>
                             </td>
                             <td><a href="{{ route('produto.edit', ['produto' => $produto->id]) }}">Editar</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="12">
+                                <p>Pedidos</p>
+                                @foreach($produto->pedidos as $pedido)
+                                    <a href="{{ route('pedido-produto.create', $pedido->id) }}">
+                                        {{ $pedido->id }}
+                                    </a>
+                                @endforeach
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -24,4 +24,11 @@ class Produto extends Model
     {
         return $this->hasOne(ProdutoDetalhe::class);
     }
+
+    public function pedidos()
+    {
+        //usando nomes padronizados
+         return $this->belongsToMany(Pedido::class, 'pedidos_produtos');
+        // juntamente com o model, passamos a tabela auxiliar
+    }
 }
