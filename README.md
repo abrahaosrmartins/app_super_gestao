@@ -2,7 +2,7 @@
 
 #### Dedicated topics:
 
-- Tools Installation and environment config.
+- Tools and environment config.
     - Database config, PHP and Composer installation.
 - Routes, Controllers and Views.
     - Route parameters (optional or not).
